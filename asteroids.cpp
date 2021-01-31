@@ -1,3 +1,8 @@
+/*
+ * Problem: Asteroid Collision
+ * From: https://leetcode.com/problems/asteroid-collision/submissions/
+ * Level: Medium
+**/
 #include<iostream>
 #include<vector>
 #include<stack>
