@@ -13,24 +13,23 @@ vector<int> asteroidCollision(vector<int>& asteroids) {
   stack<int> stk;
   int n = asteroids.size();
 
-  for (int i = 0; i < n; i++) {
-    int x = asteroids[i];
-    if (x > 0) { //positive
-      stk.push(x);
+  for (auto &asteroid : asteroids) {
+    if (asteroid > 0) { //positive
+      stk.push(asteroid);
     } else {// negative
-      int absX = -x;
-      if (stk.empty()) solution.push_back(x);
+      int abs_asteroid = -asteroid;
+      if (stk.empty()) solution.push_back(asteroid);
       while (!stk.empty()) {
         int top = stk.top();
-        if (absX > top) {
+        if (abs_asteroid > top) {
           stk.pop();
-        } else if (top > absX) {
+        } else if (top > abs_asteroid) {
           break;
-        } else if (top == absX){
+        } else if (top == abs_asteroid){
           stk.pop();
           break;
         }
-        if (stk.empty()) solution.push_back(x);
+        if (stk.empty()) solution.push_back(asteroid);
       }
     }
   }
@@ -52,6 +51,6 @@ int main() {
   vector<int> test4{-2,-1,1,2}; //pass
   vector<int> test5{-2,-1,1,2,-1,-2,3,4,13}; //pass
   vector<int> solution = asteroidCollision(test5);
-  for (auto &i : solution) cout << i << "\n";
+  for (auto &i : solution) cout << i << " ";
   return 0;
 }
