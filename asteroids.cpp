@@ -18,23 +18,23 @@ vector<int> asteroidCollision(vector<int>& asteroids) {
       stk.push(asteroid);
     } else {// negative
       int abs_asteroid = -asteroid;
-      if (stk.empty()) solution.push_back(asteroid);
+      if (stk.empty()) solution.push_back(asteroid);//case when leading negatives, that does not collide never
       while (!stk.empty()) {
         int top = stk.top();
         if (abs_asteroid > top) {
-          stk.pop();
+          stk.pop();// case when negative is bigger
         } else if (top > abs_asteroid) {
-          break;
+          break;// if some positive is bigger we remain it for post process
         } else if (top == abs_asteroid){
-          stk.pop();
+          stk.pop();// if are the same pop and skip the negative
           break;
         }
-        if (stk.empty()) solution.push_back(asteroid);
+        if (stk.empty()) solution.push_back(asteroid);// if negative is bigger and stck empty, is a solution number
       }
     }
   }
   vector<int> positivesInStack;
-  while (!stk.empty()) {
+  while (!stk.empty()) {// post process of all positives in stack as solution
     int top = stk.top();
     stk.pop();
     positivesInStack.push_back(top);
