@@ -1,6 +1,14 @@
 #include<iostream>
 using namespace std;
 
+// Documentation:
+// https://docs.google.com/presentation/d/1KMhJ3C77TuW2E0685BYZCwoykPzf-95n1CW3n8ziGoA/edit#slide=id.p
+// Problems to solve:
+// https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=636&page=show_problem&problem=734
+// https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=636&page=show_problem&problem=2737
+// https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=636&page=show_problem&problem=1626
+// Find more in: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=636
+
 class UnionFind {
   int* parent;
   int sets;
