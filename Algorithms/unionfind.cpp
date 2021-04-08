@@ -29,14 +29,20 @@ class UnionFind {
     void join(int a, int b) {
       if (areJoined(a, b)) return;
 
-      int parentA = find(a);
-      int parentB = find(b);
-      parent[parentA] = find(parentB);
+      int parentA = find(a); // 0
+      int parentB = find(b); // 1
+      parent[parentA] = parentB;
     }
     void printSets() {
       for(int i = 1; i <= sets; i++)
         cout << parent[i] << ' ';
       cout << '\n';
+    }
+    int numberOfSets() {
+      int number = 0;
+      for(int i = 1; i <= sets; i++)
+        if (parent[i] == i) number++;
+      return number;
     }
 };
 
@@ -44,8 +50,10 @@ int main() {
   UnionFind *uf = new UnionFind();
   uf -> initialize(5);
   uf -> join(1, 2);
-  uf -> join(4, 5);
-  uf -> join(2, 5);
+  uf -> join(3, 5);
+  // {1,2} {3, 5} {4}
+  // uf -> join(2, 5);
   uf -> printSets();
+  cout << uf -> numberOfSets() << "\n";
   return 0;
 }
